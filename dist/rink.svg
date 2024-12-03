@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="85" viewBox="0 0 200 85" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rink outline -->
+  <path
+    d="M10,5 H190 A5,5 0 0 1 190,80 H10 A5,5 0 0 1 10,5"
+    fill="white"
+    stroke="#00205B"
+    stroke-width="0.5"
+  />
+  
+  <!-- Center red line -->
+  <line x1="100" y1="5" x2="100" y2="80" stroke="#C8102E" stroke-width="0.5" />
+  
+  <!-- Blue lines -->
+  <line x1="65" y1="5" x2="65" y2="80" stroke="#00205B" stroke-width="0.5" />
+  <line x1="135" y1="5" x2="135" y2="80" stroke="#00205B" stroke-width="0.5" />
+  
+  <!-- Face-off circles -->
+  <circle cx="40" cy="25" r="12" stroke="#C8102E" stroke-width="0.2" fill="none" />
+  <circle cx="40" cy="60" r="12" stroke="#C8102E" stroke-width="0.2" fill="none" />
+  <circle cx="100" cy="42.5" r="12" stroke="#00205B" stroke-width="0.2" fill="none" />
+  <circle cx="160" cy="25" r="12" stroke="#C8102E" stroke-width="0.2" fill="none" />
+  <circle cx="160" cy="60" r="12" stroke="#C8102E" stroke-width="0.2" fill="none" />
+  
+  <!-- Goal creases -->
+  <path
+    d="M15,37.5 A6,6 0 0 1 15,47.5 H20 A4,4 0 0 0 20,37.5 H15"
+    fill="#00205B"
+    opacity="0.3"
+  />
+  <path
+    d="M185,37.5 A6,6 0 0 0 185,47.5 H180 A4,4 0 0 1 180,37.5 H185"
+    fill="#00205B"
+    opacity="0.3"
+  />
+  
+  <!-- Goal lines -->
+  <line x1="15" y1="37.5" x2="15" y2="47.5" stroke="#C8102E" stroke-width="0.3" />
+  <line x1="185" y1="37.5" x2="185" y2="47.5" stroke="#C8102E" stroke-width="0.3" />
+</svg>

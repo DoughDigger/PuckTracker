@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Hockey Stats Tracker" />
+    <StackLayout>
+        <Label text="Welcome to Hockey Stats Tracker" class="h1 text-center" />
+    </StackLayout>
+</Page>
