@@ -6,17 +6,30 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light;
+  color-scheme: light dark; /* Adding dark mode support */
 }
 
-body {
+/* Global body and html styles */
+html, body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #f8fafc;
-  color: #1e293b;
+  padding: 0;
+  height: 100%; /* Ensure full height */
+  width: 100%;  /* Ensure full width */
+  display: flex; /* Enable flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc; /* Light background color */
+  color: #1e293b; /* Default text color */
 }
 
+/* Optional: Dark mode background color for body */
+body.dark {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+/* Glass effect styling */
 .glass-effect {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
@@ -24,10 +37,12 @@ body {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+/* Neon border effect */
 .neon-border {
   box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
 }
 
+/* Hover lift effect */
 .hover-lift {
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -35,4 +50,32 @@ body {
 .hover-lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+/* Flexbox container for centering elements */
+.center-content {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Ensure text is centered */
+}
+
+/* Media Query: Support for small screens */
+@media (max-width: 640px) {
+  /* Adjustments for smaller screens */
+  body {
+    font-size: 14px; /* Optional: make text size smaller */
+  }
+
+  .center-content {
+    padding: 16px; /* Add padding for smaller screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Larger screens adjustments */
+  body {
+    font-size: 16px; /* Ensure larger font size for larger screens */
+  }
 }

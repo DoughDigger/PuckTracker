@@ -122,7 +122,7 @@ export const HockeyRink: React.FC<HockeyRinkProps> = ({
         d="M10,5 h180 a5,5 0 0 1 5,5 v65 a5,5 0 0 1 -5,5 h-180 a5,5 0 0 1 -5,-5 v-65 a5,5 0 0 1 5,-5"
         fill="none"
         stroke="#000"
-        strokeWidth="1.1"
+        strokeWidth="1.2"
       />
 
       {/* Center red line */}

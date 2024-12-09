@@ -4,30 +4,36 @@ import { useGameStore } from '../store/gameStore';
 
 export const StartPage: React.FC = () => {
   const navigate = useNavigate();
-  const { 
-    homeTeam, 
-    awayTeam, 
+  const {
+    homeTeam,
+    awayTeam,
     gameDate,
-    setHomeTeamName, 
+    setHomeTeamName,
     setAwayTeamName,
-    setGameDate 
+    setGameDate,
   } = useGameStore();
 
   useEffect(() => {
     if (!homeTeam.name) setHomeTeamName('Tigers');
     if (!awayTeam.name) setAwayTeamName('Other');
-  }, []);
+  }, [homeTeam.name, awayTeam.name, setHomeTeamName, setAwayTeamName]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full mx-auto">
-        <div className="glass-effect bg-black/40 backdrop-blur-xl rounded-3xl shadow-2xl p-12 border border-orange-500/20">
-          <div className="flex flex-col items-center">
-            <h1 className="text-6xl font-bold mb-16 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent text-center">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      {/* Wrapper container */}
+      <div className="max-w-4xl w-full px-6">
+        {/* Glass Effect Card */}
+        <div className="bg-black/50 backdrop-blur-lg rounded-3xl shadow-2xl p-12 border border-orange-500/20">
+          {/* Content Centering */}
+          <div className="flex flex-col items-center text-center">
+            {/* Page Title */}
+            <h1 className="text-6xl font-bold mb-16 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
               Hockey Stats Tracker
             </h1>
-            
-            <div className="w-full max-w-2xl space-y-10">
+
+            {/* Form Inputs */}
+            <div className="w-full max-w-4xl space-y-10">
+              {/* Game Date Input */}
               <div className="flex flex-col items-center">
                 <label className="block text-2xl font-medium text-orange-400 mb-4">
                   Game Date
@@ -36,10 +42,11 @@ export const StartPage: React.FC = () => {
                   type="date"
                   value={gameDate}
                   onChange={(e) => setGameDate(e.target.value)}
-                  className="w-full p-6 text-xl bg-black/50 border border-orange-500/30 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-center hover:border-orange-500/50"
+                  className="w-full p-4 text-xl bg-black/50 border border-orange-500/30 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center hover:border-orange-500/50"
                 />
               </div>
 
+              {/* My Team Input */}
               <div className="flex flex-col items-center">
                 <label className="block text-2xl font-medium text-orange-400 mb-4">
                   My Team
@@ -48,11 +55,12 @@ export const StartPage: React.FC = () => {
                   type="text"
                   value={homeTeam.name}
                   onChange={(e) => setHomeTeamName(e.target.value)}
-                  className="w-full p-6 text-xl bg-black/50 border border-orange-500/30 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-center hover:border-orange-500/50"
+                  className="w-full p-4 text-xl bg-black/50 border border-orange-500/30 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center hover:border-orange-500/50"
                   placeholder="Enter my team name"
                 />
               </div>
 
+              {/* Other Team Input */}
               <div className="flex flex-col items-center">
                 <label className="block text-2xl font-medium text-orange-400 mb-4">
                   Other Team
@@ -61,40 +69,38 @@ export const StartPage: React.FC = () => {
                   type="text"
                   value={awayTeam.name}
                   onChange={(e) => setAwayTeamName(e.target.value)}
-                  className="w-full p-6 text-xl bg-black/50 border border-orange-500/30 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-center hover:border-orange-500/50"
+                  className="w-full p-4 text-xl bg-black/50 border border-orange-500/30 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center hover:border-orange-500/50"
                   placeholder="Enter other team name"
                 />
               </div>
 
-              <div className="flex flex-col space-y-6 w-full mt-16">
+              {/* Action Buttons */}
+              <div className="flex flex-wrap justify-center gap-8 mt-12">
                 <button
                   onClick={() => navigate('/roster')}
                   disabled={!homeTeam.name || !awayTeam.name}
-                  className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-8 rounded-xl text-2xl font-semibold hover-lift transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-orange-500/20"
+                  className="h-40 w-40 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg shadow-orange-500/30"
                 >
-                  Start New Game
+                  Start Game
                 </button>
-
                 <button
                   onClick={() => navigate('/johns-method')}
                   disabled={!homeTeam.name || !awayTeam.name}
-                  className="w-full bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white px-12 py-8 rounded-xl text-2xl font-semibold hover-lift transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                  className="h-40 w-40 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   John's Method
                 </button>
-
                 <button
                   onClick={() => navigate('/stats')}
-                  className="w-full bg-black/50 border border-orange-500/30 hover:border-orange-500/50 text-white px-12 py-8 rounded-xl text-2xl font-semibold hover-lift transition-all shadow-lg"
+                  className="h-40 w-40 bg-black/50 border border-orange-500/30 hover:border-orange-500/50 text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
-                  View Game History
+                  Game History
                 </button>
-
                 <button
                   onClick={() => navigate('/analysis')}
-                  className="w-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white px-12 py-8 rounded-xl text-2xl font-semibold hover-lift transition-all shadow-lg"
+                  className="h-60 w-60 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
-                  Game Analysis
+                  Analysis
                 </button>
               </div>
             </div>
