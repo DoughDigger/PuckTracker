@@ -40,7 +40,7 @@ export const StartPage: React.FC = () => {
                 </label>
                 <input
                   type="date"
-                  value={gameDate}
+                  value={gameDate || ''}
                   onChange={(e) => setGameDate(e.target.value)}
                   className="w-full p-4 text-xl bg-black/50 border border-orange-500/30 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center hover:border-orange-500/50"
                 />
@@ -53,7 +53,7 @@ export const StartPage: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  value={homeTeam.name}
+                  value={homeTeam.name || ''}
                   onChange={(e) => setHomeTeamName(e.target.value)}
                   className="w-full p-4 text-xl bg-black/50 border border-orange-500/30 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center hover:border-orange-500/50"
                   placeholder="Enter my team name"
@@ -67,7 +67,7 @@ export const StartPage: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  value={awayTeam.name}
+                  value={awayTeam.name || ''}
                   onChange={(e) => setAwayTeamName(e.target.value)}
                   className="w-full p-4 text-xl bg-black/50 border border-orange-500/30 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center hover:border-orange-500/50"
                   placeholder="Enter other team name"
@@ -75,30 +75,30 @@ export const StartPage: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap justify-center gap-8 mt-12">
+              <div className="flex flex-wrap justify-center gap-12 mt-24">
                 <button
                   onClick={() => navigate('/roster')}
                   disabled={!homeTeam.name || !awayTeam.name}
-                  className="h-40 w-40 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg shadow-orange-500/30"
+                  className="h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg shadow-orange-500/30"
                 >
                   Start Game
                 </button>
                 <button
                   onClick={() => navigate('/johns-method')}
                   disabled={!homeTeam.name || !awayTeam.name}
-                  className="h-40 w-40 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
+                  className="h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   John's Method
                 </button>
                 <button
                   onClick={() => navigate('/stats')}
-                  className="h-40 w-40 bg-black/50 border border-orange-500/30 hover:border-orange-500/50 text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
+                  className="h-52 w-52 md:h-64 md:w-64 bg-black/50 border border-orange-500/30 hover:border-orange-500/50 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   Game History
                 </button>
                 <button
                   onClick={() => navigate('/analysis')}
-                  className="h-60 w-60 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white rounded-full text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
+                  className="h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   Analysis
                 </button>
