@@ -7,6 +7,7 @@ import { GameSummary } from './components/GameSummary';
 import { GameStats } from './components/GameStats';
 import { GameAnalysis } from './components/GameAnalysis';
 import { JohnsMethod } from './components/JohnsMethod';
+import './Styles.css'; // Ensure this points to your new "Styles.css" file
 
 const App = () => {
   return (

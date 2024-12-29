@@ -123,9 +123,9 @@ export const GameStats: React.FC = () => {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-orange-500/30">
-                    <th className="py-3 px-4 text-orange-400 text-left font-medium text-sm uppercase tracking-wider">Date</th>
-                    <th className="py-3 px-4 text-orange-400 text-left font-medium text-sm uppercase tracking-wider">Teams</th>
-                    <th className="py-3 px-4 text-orange-400 text-left font-medium text-sm uppercase tracking-wider">Goalies</th>
+                    <th className="py-3 px-4 text-orange-400 text-right font-medium text-sm uppercase tracking-wider">Date</th>
+                    <th className="py-3 px-4 text-orange-400 text-right font-medium text-sm uppercase tracking-wider">Teams</th>
+                    <th className="py-3 px-4 text-orange-400 text-right font-medium text-sm uppercase tracking-wider">Goalies</th>
                     <th className="py-3 px-4 text-orange-400 text-center font-medium text-sm uppercase tracking-wider">Result</th>
                     <th className={`${headerClass} border-l border-orange-500/30`}>GA</th>
                     <th className={headerClass}>SOG</th>

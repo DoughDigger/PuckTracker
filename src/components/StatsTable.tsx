@@ -60,8 +60,8 @@ export const StatsTable: React.FC<StatsTableProps> = ({
   const homeStats = calculateStats(homeTeam);
   const awayStats = calculateStats(awayTeam);
 
-  const cellClass = "py-2 px-4 text-white text-center w-[8%]";
-  const headerClass = "py-2 px-4 text-orange-400 text-center w-[8%] font-medium";
+  const cellClass = "custom-cell";
+  const headerClass = "py-2 px-4 text-orange-300 text-center w-[8%] font-medium";
 
   return (
     <div className="bg-black rounded-lg p-4 border border-orange-500/30">
@@ -75,7 +75,7 @@ export const StatsTable: React.FC<StatsTableProps> = ({
               <th className={`${headerClass} border-l border-orange-500/30`}>Goals</th>
               <th className={headerClass}>SOG</th>
               {/* Spacer */}
-              <th className="w-[2%] border-l border-orange-500/30"></th>
+              <th className="w-[5%] border-l border-orange-500/30"></th>
               {/* Group 2: Detailed Stats */}
               <th className={headerClass}>Covered</th>
               <th className={headerClass}>Rebound</th>

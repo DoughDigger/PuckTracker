@@ -118,9 +118,9 @@ export const Game: React.FC = () => {
           </div>
 
           {/* Main content area with rink and controls */}
-          <div className="flex gap-6">
-            {/* Rink container (65%) */}
-            <div className="w-[65%] bg-surface rounded-lg p-4 border border-gray-200">
+          <div className="flex gap-10">
+            {/* Rink container */}
+            <div className="w-[100%] bg-surface rounded-lg p-4 border border-gray-200">
               <div className="flex justify-end mb-2">
                 <button
                   onClick={() => setSidesFlipped(!sidesFlipped)}
@@ -140,13 +140,13 @@ export const Game: React.FC = () => {
               />
             </div>
 
-            {/* Controls container (35%) */}
-            <div className="w-[35%] flex flex-col gap-6">
+            {/* Controls container */}
+            <div className="row-container">
               {/* Team Selection */}
-              <div className="flex flex-col gap-6">
+              <div className="track-team-button">
                 <button
                   onClick={() => handleTeamSelect(homeTeam.name)}
-                  className={`w-full py-12 rounded-xl text-4xl font-medium transition-all ${
+                  className={`py-12 text-4xl font-medium transition-all ${
                     selectedTeam === homeTeam.name
                       ? 'bg-primary text-white'
                       : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
@@ -156,7 +156,7 @@ export const Game: React.FC = () => {
                 </button>
                 <button
                   onClick={() => handleTeamSelect(awayTeam.name)}
-                  className={`w-full py-12 rounded-xl text-4xl font-medium transition-all ${
+                  className={`w-full py-12 text-4xl font-medium transition-all ${
                     selectedTeam === awayTeam.name
                       ? 'bg-primary text-white'
                       : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
@@ -167,7 +167,7 @@ export const Game: React.FC = () => {
               </div>
 
               {/* Shot Type Selection */}
-              <div className="grid grid-cols-2 gap-6">
+              <div className="track-shot-button">
                 {shotTypes.map((action) => (
                   <button
                     key={action.id}
@@ -175,7 +175,7 @@ export const Game: React.FC = () => {
                     disabled={!selectedTeam}
                     className={`${
                       action.large ? 'col-span-2' : 'col-span-1'
-                    } py-12 rounded-xl text-4xl font-medium transition-all ${
+                    } py-12 text-4xl font-medium transition-all ${
                       !selectedTeam
                         ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                         : `${action.color} text-white hover:opacity-90`
@@ -184,20 +184,25 @@ export const Game: React.FC = () => {
                     {action.label}
                   </button>
                 ))}
-              </div>
 
-              {/* Undo Button */}
-              <button
+                {/* Undo Button */}
+              <div className="track-shot-button">
+                <button
                 onClick={undoLastAction}
                 disabled={!actionHistory.length || actionHistory[actionHistory.length - 1].period !== currentPeriod}
-                className={`w-full py-12 rounded-xl text-4xl font-medium transition-all ${
+                className={`w-full py-2 rounded-xl text-4xl font-medium transition-all ${
                   !actionHistory.length || actionHistory[actionHistory.length - 1].period !== currentPeriod
                     ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                     : 'bg-red-600 hover:bg-red-700 text-white'
                 }`}
-              >
+                >
                 Undo Last Shot
-              </button>
+                </button>
+              </div>
+
+              </div>
+
+              
             </div>
           </div>
         </div>

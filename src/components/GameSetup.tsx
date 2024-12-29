@@ -46,9 +46,9 @@ export const GameSetup: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full">
-        <div className="glass-effect rounded-2xl shadow-lg p-8">
+    <div className="min-h-screen w-full">
+      
+        <div className="glass-effect">
           <div className="flex flex-col items-center">
             <div className="w-full flex justify-between items-center mb-8">
               <h1 className="text-4xl font-bold text-primary">
@@ -119,32 +119,35 @@ export const GameSetup: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="flex space-x-4">
+             <div className="row-cotainer">                 
+              <div className="flex inline-flex-row space-x-6">
+              <button
+                onClick={() => navigate('/game')}
+                className="custom-button bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
+              >
+                Start Game
+              </button>
+              
                 <button
                   onClick={() => navigate('/')}
-                  className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 px-8 py-4 rounded-lg text-lg font-semibold hover-lift transition-all"
+                  className="custom-button bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   Back
                 </button>
                 <button
                   onClick={() => navigate('/roster-edit')}
-                  className="flex-1 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg text-lg font-semibold hover-lift transition-all"
+                  className="custom-button bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   Edit Rosters
                 </button>
               </div>
 
-              <button
-                onClick={() => navigate('/game')}
-                className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover-lift transition-all"
-              >
-                Start Game
-              </button>
+              
+            </div>
             </div>
           </div>
         </div>
-      </div>
+      
 
       {showHomeGoalieSelect && (
         <GoalieSelectModal

@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGameStore } from '../store/gameStore';
 
 export const StartPage: React.FC = () => {
+  const [showOpener, setShowOpener] = useState(true);
   const navigate = useNavigate();
   const {
     homeTeam,
@@ -18,21 +19,35 @@ export const StartPage: React.FC = () => {
     if (!awayTeam.name) setAwayTeamName('Other');
   }, [homeTeam.name, awayTeam.name, setHomeTeamName, setAwayTeamName]);
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900">
-      {/* Wrapper container */}
-      <div className="max-w-4xl w-full px-6">
-        {/* Glass Effect Card */}
-        <div className="bg-black/50 backdrop-blur-lg rounded-3xl shadow-2xl p-12 border border-orange-500/20">
-          {/* Content Centering */}
-          <div className="flex flex-col items-center text-center">
-            {/* Page Title */}
-            <h1 className="text-6xl font-bold mb-16 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-              Hockey Stats Tracker
-            </h1>
+  useEffect(() => {
+    // Automatically hide the opener after 3 seconds
+    const timer = setTimeout(() => setShowOpener(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
+  return (
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      {/* Opener Animation */}
+      {showOpener ? (
+        <div className="absolute inset-0 flex items-center justify-center bg-black">
+          <div className="relative w-full h-full">
+            {/* Puck Animation */}
+            <div className="absolute h-20 w-20 bg-gray-800 rounded-full shadow-lg animate-puck z-10"></div>
+            <h1 className="absolute inset-0 flex items-center justify-center text-6xl text-white font-bold">
+              Welcome!
+            </h1>
+          </div>
+        </div>
+      ) : (
+        <div className="relative min-h-screen flex items-center justify-center">
+          {/* Main Content */}
+          <div className="flex flex-col flex-center items-center align-center text-center">
+            {/* Page Title */}
+            <h1 className="text-6xl font-bold items-center mb-16 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+              Track-a-Puck
+            </h1>
             {/* Form Inputs */}
-            <div className="w-full max-w-4xl space-y-10">
+            <div className="w-full flex-center max-w-50xl space-y-20">
               {/* Game Date Input */}
               <div className="flex flex-col items-center">
                 <label className="block text-2xl font-medium text-orange-400 mb-4">
@@ -62,7 +77,7 @@ export const StartPage: React.FC = () => {
 
               {/* Other Team Input */}
               <div className="flex flex-col items-center">
-                <label className="block text-2xl font-medium text-orange-400 mb-4">
+                <label className="block text-2xl font-medium mb-4">
                   Other Team
                 </label>
                 <input
@@ -79,26 +94,26 @@ export const StartPage: React.FC = () => {
                 <button
                   onClick={() => navigate('/roster')}
                   disabled={!homeTeam.name || !awayTeam.name}
-                  className="h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg shadow-orange-500/30"
+                  className="custom-button h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg shadow-orange-500/30"
                 >
                   Start Game
                 </button>
                 <button
                   onClick={() => navigate('/johns-method')}
                   disabled={!homeTeam.name || !awayTeam.name}
-                  className="h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
+                  className="custom-button h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   John's Method
                 </button>
                 <button
                   onClick={() => navigate('/stats')}
-                  className="h-52 w-52 md:h-64 md:w-64 bg-black/50 border border-orange-500/30 hover:border-orange-500/50 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
+                  className="custom-button h-52 w-52 md:h-64 md:w-64 bg-black/50 border border-orange-500/30 hover:border-orange-500/50 text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   Game History
                 </button>
                 <button
                   onClick={() => navigate('/analysis')}
-                  className="h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
+                  className="custom-button h-52 w-52 md:h-64 md:w-64 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white rounded-lg text-3xl font-semibold transition-transform transform hover:scale-105 shadow-lg"
                 >
                   Analysis
                 </button>
@@ -106,7 +121,7 @@ export const StartPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

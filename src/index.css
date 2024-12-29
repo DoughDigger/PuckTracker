@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  overflow: auto;
   color-scheme: light dark; /* Adding dark mode support */
 }
 
@@ -15,12 +18,13 @@ html, body {
   padding: 0;
   height: 100%; /* Ensure full height */
   width: 100%;  /* Ensure full width */
-  display: flex; /* Enable flexbox for centering */
+  display: flex; /*Enable flexbox for centering */
+  overflow: horizontally;
   justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  align-items: top; /* Center vertically */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: #f8fafc; /* Light background color */
-  color: #1e293b; /* Default text color */
+  background-color: #dce4ec; /* Light background color */
+  color: #292d34; /* Default text color */
 }
 
 /* Optional: Dark mode background color for body */
@@ -35,21 +39,18 @@ body.dark {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-/* Neon border effect */
-.neon-border {
-  box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
+  width: 100%
+  padding: 2rem;
 }
 
 /* Hover lift effect */
 .hover-lift {
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(52, 22, 249, 0.3);
 }
 
 /* Flexbox container for centering elements */
@@ -69,7 +70,7 @@ body.dark {
   }
 
   .center-content {
-    padding: 16px; /* Add padding for smaller screens */
+    padding: 8px; /* Add padding for smaller screens */
   }
 }
 

@@ -97,9 +97,9 @@ export const SogSummaryTable: React.FC<SogSummaryTableProps> = ({
     };
   };
 
-  const cellClass = "py-1 px-2 text-white text-center w-12";
+  const cellClass = "custom-cell py-1 px-2 text-white text-right w-12";
   const headerClass = "py-1 px-2 text-orange-400 text-center text-sm w-12 font-medium";
-  const totalCellClass = "py-1 px-2 text-white text-center w-14 border-l border-orange-500/30";
+  const totalCellClass = "custom-cell py-1 px-2 text-white text-center w-14 border-l border-orange-500/30";
   const percentCellClass = "py-1 px-2 text-white text-center w-16 border-l border-orange-500/30";
 
   return (
@@ -161,7 +161,7 @@ export const SogSummaryTable: React.FC<SogSummaryTableProps> = ({
               const totals = calculateTotals(team);
               return (
                 <tr key={`sog-${team}`} className="border-b border-orange-500/20">
-                  <td className="py-1 px-2 text-white text-center">{team}</td>
+                  <td className="py-1 px-2 text-white text-right">{team}</td>
                   {[1, 2, 3, 4, 5].map((period) => {
                     const stats = calculatePeriodStats(team, period);
                     return (

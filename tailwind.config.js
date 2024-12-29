@@ -30,3 +30,13 @@ export default {
   },
   plugins: [],
 }
+
+module.exports = {
+  theme: {
+    extend: {
+      flexDirection: {
+        'horizontal': 'row',
+      },
+    },
+  },
+};

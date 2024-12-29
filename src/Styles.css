@@ -1,0 +1,66 @@
+@layer utilities {
+    .custom-button {
+      height: 5rem !important; /* Overrides Tailwind's h-64 */
+      width: 5rem !important;  /* Overrides Tailwind's w-64 */
+      border-radius: 1rem !important; /* Ensures square shapes */
+      box-shadow: 7px 7px 7px hsla(0, 7%, 12%, 0.2);
+      margin-inline: 2px;
+      vertical-align: top;
+      margin-top: 4px;
+    
+    }
+  }
+  /* Pop effect on press */
+    .custom-button:active {
+      transform: scale(0.95); /* Slightly shrink the button */
+      box-shadow: 4px 4px 4px hsla(0, 7%, 12%, 0.3); /* Reduce shadow size */
+  }
+
+    .custom-cell {
+      justify-content: right; /*justify right */
+      align-items: center; /* Center content horizontally */
+      text-align: right; /* Ensure text is right */
+  }
+
+  .track-team-button {
+    height: 3rem !important; /* Overrides Tailwind's h-64 */
+      width: 5rem !important;  /* Overrides Tailwind's w-64 */
+      border-radius: 1rem !important; /* Ensures square shapes */
+      margin-inline: 2px;
+      display: inline-flex;
+      margin-top: 1px;
+}
+
+.track-shot-button {
+  height: 3rem !important; /* Overrides Tailwind's h-64 */
+    width: 5rem !important;  /* Overrides Tailwind's w-64 */
+    border-radius: 1rem !important; /* Ensures square shapes */
+    margin-inline: 2px;
+    display: inline-flex;
+    margin-top: 1px;
+}
+
+.row-container {
+  display: inline-flex !important; /* Activates Flexbox */
+  flex-direction: row !important; /* Aligns items in a row (default for flex) */
+  flex-wrap: wrap; /* Allows wrapping to the next line if needed */
+  justify-content: flex-start !important; /* Aligns items horizontally */
+  align-items: center !important; /* Aligns items vertically */
+  gap: 2rem !important; /* Space between elements */
+  margin-right: 2px;
+  inline-size: auto;
+}
+
+
+@keyframes puckFly {
+  0% {
+    transform: translate(-100%, 50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(120vw, -50vh) rotate(720deg);
+  }
+}
+
+.animate-puck {
+  animation: puckFly 3s ease-in-out forwards;
+}

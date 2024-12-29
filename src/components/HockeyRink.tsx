@@ -188,7 +188,7 @@ export const HockeyRink: React.FC<HockeyRinkProps> = ({
           fill="#f97316"
           textAnchor="middle"
           dominantBaseline="middle"
-          fontSize="2"
+          fontSize="3"
           transform="rotate(90)"
         >
           {getHomeGoalieText()}
@@ -201,7 +201,7 @@ export const HockeyRink: React.FC<HockeyRinkProps> = ({
           fill="#a855f7"
           textAnchor="middle"
           dominantBaseline="middle"
-          fontSize="2"
+          fontSize="3"
           transform="rotate(90)"
         >
           {getAwayGoalieText()}
